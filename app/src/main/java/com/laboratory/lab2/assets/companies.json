@@ -1,0 +1,88 @@
+{
+  "companies": [
+    {
+      "id": 0,
+      "title": "Consid",
+      "city": "Karlshamn",
+      "webpage": "https://www.consid.com/sv/om-oss/kontor/karlshamn/"
+    },
+    {
+      "id": 1,
+      "title": "Sony Nordic",
+      "city": "Lund",
+      "webpage": "https://ideon.se/our-companies/sony-nordic/"
+    },
+    {
+      "id": 2,
+      "title": "Combitech",
+      "city": "Kristianstad",
+      "webpage": "https://www.combitech.se/"
+    },
+    {
+      "id": 3,
+      "title": "Axis Communication",
+      "city": "Lund",
+      "webpage": "https://www.axis.com/experience-center/lund"
+    },
+    {
+      "id": 4,
+      "title": "Softhouse",
+      "city": "Malmö",
+      "webpage": "https://www.softhouse.se/kontakt/malmo/"
+    },
+    {
+      "id": 5,
+      "title": "Addpro",
+      "city": "Kristianstad",
+      "webpage": "https://www.addpro.se/"
+    },
+    {
+      "id": 6,
+      "title": "Ericsson",
+      "city": "Lund",
+      "webpage": "https://www.ericsson.com/sv/om-oss/company-facts/ericsson-worldwide/sweden"
+    },
+    {
+      "id": 7,
+      "title": "Assimilatus",
+      "city": "Staffanstorp",
+      "webpage": "https://www.assimilatus.se/"
+    },
+    {
+      "id": 8,
+      "title": "Smarta Byar",
+      "city": "Veberöd",
+      "webpage": "https://veberod.nu/category/smarta-byar/"
+    },
+    {
+      "id": 9,
+      "title": "Cohabit",
+      "city": "Malmö",
+      "webpage": "https://cohabit.se/"
+    },
+    {
+      "id": 10,
+      "title": "Soeco",
+      "city": "Dalby",
+      "webpage": "https://www.soeco.se/"
+    },
+    {
+      "id": 11,
+      "title": "Elobina",
+      "city": "Alnarp",
+      "webpage": "https://elobina.com/"
+    },
+    {
+      "id": 12,
+      "title": "KLT",
+      "city": "Kristianstad",
+      "webpage": "https://kltlogistik.se/"
+    },
+    {
+      "id": 13,
+      "title": "Martensson",
+      "city": "Kristianstad",
+      "webpage": "https://martenssonconsulting.se/"
+    }
+  ]
+}
