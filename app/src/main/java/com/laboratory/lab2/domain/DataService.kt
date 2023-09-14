@@ -6,38 +6,37 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
-import com.laboratory.lab2.domain.models.Companies
+import com.google.gson.reflect.TypeToken
+import com.laboratory.lab2.domain.models.Company
 
 
-// Create a class that takes in a document Id and fetches the data from Firestore
 class DataService(private val documentId: String) {
-
     private val db = Firebase.firestore
 
-    fun getCompaniesData(): Task<Companies?> {
+    fun getCompaniesData(): Task<List<Company>?> {
         return db.collection("companies")
-            .document(documentId)
+            .document(this.documentId)
             .get()
             .continueWith { task ->
-//                Log.e("DataService", "Error getting documents.", task.exception)
-                handleCompaniesDataTask(task)
+                val document: DocumentSnapshot = getTaskResult(task)
+                val companiesField = document.get("companies")
+                Log.d("DataService", "companiesField: $companiesField")
+                (companiesField is List<*>).let {
+                    val gson = Gson()
+                    val type = object : TypeToken<List<Company>>() {}.type
+                    gson.fromJson<List<Company>>(gson.toJson(companiesField), type)
+                }
             }
     }
 
-    private fun handleCompaniesDataTask(task: Task<DocumentSnapshot>): Companies? {
+    private fun getTaskResult(task: Task<DocumentSnapshot>): DocumentSnapshot {
         if (!task.isSuccessful) {
-            Log.e("DataService", "Error getting documents.", task.exception)
-            return Companies(emptyList())
+            throw task.exception!!
         }
-
-        val result = task.result
-        if (result != null) {
-            val gson = Gson()
-            val companies = gson.toJson(result)
-            return gson.fromJson(companies, Companies::class.java)
+        val document = task.result
+        if (document == null || !document.exists()) {
+            throw task.exception!!
         }
-        return Companies(emptyList())
+        return document
     }
-
-
 }

@@ -7,30 +7,24 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.laboratory.lab2.domain.models.Company
 
 @Composable
 fun CompanyCard(company: Company) {
-
-
     Card(
         modifier = Modifier
-            .padding(horizontal = 20.dp)
-            .padding(vertical = 20.dp)
+            .padding(all = 20.dp)
             .fillMaxWidth()
             .height(150.dp),
         colors = CardDefaults.cardColors(
@@ -39,7 +33,6 @@ fun CompanyCard(company: Company) {
     ) {
         Box(
             modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.BottomEnd
         ) {
             Column(
                 Modifier.fillMaxSize()
@@ -55,15 +48,15 @@ fun CompanyCard(company: Company) {
                     modifier = Modifier.padding(horizontal = 15.dp)
                 ) {
                     Text(
+                        text = "Location: ",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                    Text(
                         text = company.city,
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Normal,
                         modifier = Modifier.padding(end = 10.dp)
-                    )
-                    Icon(
-                        Icons.Default.LocationOn,
-                        modifier = Modifier.size(20.dp),
-                        contentDescription = "location icon"
                     )
                 }
                 Row(
@@ -74,7 +67,8 @@ fun CompanyCard(company: Company) {
                         text = company.webpage,
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Normal,
-                        modifier = Modifier.padding(end = 10.dp)
+                        modifier = Modifier.padding(end = 10.dp),
+                        overflow = TextOverflow.Ellipsis,
                     )
                 }
             }

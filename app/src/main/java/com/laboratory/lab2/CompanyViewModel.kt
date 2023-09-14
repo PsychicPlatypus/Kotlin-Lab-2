@@ -25,7 +25,7 @@ class CompanyViewModel : ViewModel() {
         companyService.getCompaniesData()
             .addOnSuccessListener { companies ->
                 if (companies != null) {
-                    _companyData.value = companies
+                    _companyData.value = Companies(companies = companies)
                     _appState.value = States.COMPLETED
                 } else {
                     _appState.value = States.ERROR
