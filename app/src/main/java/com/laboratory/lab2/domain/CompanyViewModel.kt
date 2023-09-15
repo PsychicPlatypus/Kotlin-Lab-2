@@ -9,10 +9,10 @@ class CompanyViewModel : ViewModel() {
     private val companyService = DataService(documentId = "QLuXfgm61ladxyIpyAxi")
 
     private val companiesMutableLiveData = MutableLiveData<Companies>()
-    private val statesMutableLiveData = MutableLiveData<States>()
+    private var statesMutableLiveData = MutableLiveData<States>()
 
     val companyData: LiveData<Companies> = companiesMutableLiveData
-    val appState: LiveData<States> = statesMutableLiveData
+    var appState: LiveData<States> = statesMutableLiveData
 
     private fun loadCompanyData() {
         statesMutableLiveData.value = States.LOADING
