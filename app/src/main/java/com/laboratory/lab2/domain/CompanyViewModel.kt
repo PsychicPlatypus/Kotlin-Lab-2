@@ -7,10 +7,8 @@ import com.laboratory.lab2.domain.models.Companies
 
 class CompanyViewModel : ViewModel() {
     private val companyService = DataService(documentId = "QLuXfgm61ladxyIpyAxi")
-
     private val companiesMutableLiveData = MutableLiveData<Companies>()
     private var statesMutableLiveData = MutableLiveData<States>()
-
     val companyData: LiveData<Companies> = companiesMutableLiveData
     var appState: LiveData<States> = statesMutableLiveData
 
