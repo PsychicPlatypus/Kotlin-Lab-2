@@ -16,9 +16,9 @@ import com.laboratory.lab2.domain.States
 
 @Composable
 fun Main() {
-    val viewModel: CompanyViewModel = viewModel()
-    val companyData by viewModel.companyData.observeAsState()
-    val state by viewModel.appState.observeAsState()
+    val companyViewModel: CompanyViewModel = viewModel()
+    val companyData by companyViewModel.companyData.observeAsState()
+    val state by companyViewModel.appState.observeAsState()
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
